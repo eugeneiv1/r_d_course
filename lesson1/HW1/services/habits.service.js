@@ -1,4 +1,4 @@
-import * as habitModel from '../models/habits.model.js'
+import * as habitModel from '../models/habits.model.js';
 import { getTodayOffset } from '../utils/time.js';
 
 const addHabit = async (name, freq) => {
@@ -44,12 +44,12 @@ const showStats = async () => {
 };
 
 const deleteHabit = async (id) => {
-    await habitModel.deleteHabit(id)
+    await habitModel.deleteHabit(id);
     console.log('Habit deleted');
 };
 
 const updateHabit = async (id, name, freq) => {
-    await habitModel.updateHabit(id, {name, freq})
+    await habitModel.updateHabit(id, {name, freq});
     console.log('Habit updated');
 };
 
@@ -60,4 +60,4 @@ export {
     showStats,
     deleteHabit,
     updateHabit
-}
+};

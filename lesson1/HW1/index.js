@@ -1,4 +1,4 @@
-import router from "./router/index.js";
+import router from './router/index.js';
 
 const args = process.argv.slice(2);
 

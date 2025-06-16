@@ -1,4 +1,4 @@
-import * as habitService from '../services/habits.service.js'
+import * as habitService from '../services/habits.service.js';
 
 const add = async ({ name, freq }) => {
     await habitService.addHabit(name, freq);
@@ -24,4 +24,4 @@ const update = async ({ id, name, freq }) => {
     await habitService.updateHabit(id, name, freq);
 };
 
-export {add, list, done, stats, deleteHabit, update}
+export {add, list, done, stats, deleteHabit, update};

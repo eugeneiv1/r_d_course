@@ -8,8 +8,6 @@ const router = async (args) => {
         return acc;
     }, {});
 
-    console.log(command)
-
     switch (command) {
         case 'add':
             await habitController.add(argMap);

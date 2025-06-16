@@ -1,5 +1,5 @@
-import * as fs from "node:fs/promises";
-import path from "path";
+import * as fs from 'node:fs/promises';
+import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -11,15 +11,15 @@ const filePath = path.join(__dirname, '../db.json');
 
 const read = async () => {
     return JSON.parse(await fs.readFile(filePath, 'utf-8'));
-}
+};
 
 const write = async (data) => {
-    await fs.writeFile(filePath, JSON.stringify(data, null, 2))
-}
+    await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+};
 
 const getAllHabits = async () => {
     return await read();
-}
+};
 
 const getHabitById = async (habitId) => {
     const db = await read();
@@ -28,7 +28,7 @@ const getHabitById = async (habitId) => {
     if(!habit) return false;
 
     return habit;
-}
+};
 
 const createHabit = async (data) => {
     const db = await read();
@@ -36,8 +36,8 @@ const createHabit = async (data) => {
 
     await write([...db, habit]);
 
-    return habit
-}
+    return habit;
+};
 
 const deleteHabit = async (habitId) => {
     const db = await read();
@@ -47,18 +47,18 @@ const deleteHabit = async (habitId) => {
     await write(newHabitList);
 
     return true;
-}
+};
 
 const updateHabit = async (habitId, updateData) => {
     const db = await read();
-    const targetHabitIndex = db.findIndex(habit => habit.id === habitId)
+    const targetHabitIndex = db.findIndex(habit => habit.id === habitId);
     if (targetHabitIndex === -1) return false;
     db[targetHabitIndex] = {...db[targetHabitIndex], ...updateData};
 
     await write(db);
 
-    return true
-}
+    return true;
+};
 
 export {
     getAllHabits,
@@ -66,4 +66,4 @@ export {
     createHabit,
     deleteHabit,
     updateHabit
-}
+};
