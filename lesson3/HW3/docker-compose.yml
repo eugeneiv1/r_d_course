@@ -1,0 +1,26 @@
+version: '3'
+services:
+  redis:
+    build:
+      context: .
+      dockerfile: .Dockerfile.redis-like
+    networks:
+      internal:
+        aliases: [redis]
+
+  kv:
+    build:
+      context: ./kv-server
+      dockerfile: .Dockerfile.kv.dev
+    ports:
+      - "8080:3000"
+    depends_on: [redis]
+    environment:
+      - REDIS_URL=http://redis:5000
+    networks:
+      internal:
+        aliases: [kv]
+
+networks:
+  internal:
+    driver: bridge
