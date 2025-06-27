@@ -14,17 +14,17 @@
 ## Запуск
 
 > npm install         # створює lock-файл, хоча залежностей немає
-> node index.js ...   # запуск команди CLI
+> node server.js ...   # запуск команди CLI
 
 
 ## Приклад команд CLI
 
-> node index.js add --name "<назва>" --freq <daily|weekly|monthly>
-> node index.js list
-> node index.js done --id <id>
-> node index.js stats
-> node index.js delete --id <id>
-> node index.js update --id <id> --name "<нова назва>" --freq <daily|weekly|monthly>
+> node server.js add --name "<назва>" --freq <daily|weekly|monthly>
+> node server.js list
+> node server.js done --id <id>
+> node server.js stats
+> node server.js delete --id <id>
+> node server.js update --id <id> --name "<нова назва>" --freq <daily|weekly|monthly>
 
 ## Структура звички 
 
