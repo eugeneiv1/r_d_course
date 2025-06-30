@@ -7,8 +7,6 @@ const numberStringSchema = (def) => zod.coerce.number().default(def).transform(S
 const DEFAULT_PORT = 3000;
 const DEFAULT_ENV = 'development';
 
-console.log(process.env.PORT)
-
 const schema = zod.object({
     PORT: numberStringSchema(DEFAULT_PORT),
     NODE_ENV: zod.enum(['development', 'production', 'test']).default(DEFAULT_ENV)
