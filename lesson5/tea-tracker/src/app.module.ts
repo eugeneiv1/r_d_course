@@ -1,10 +1,15 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TeaModule } from './tea/tea.module';
+import { APP_GUARD } from '@nestjs/core';
+import { XApiKeyGuard } from './common/x-api-key.guard';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [TeaModule],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: XApiKeyGuard,
+    },
+  ],
 })
 export class AppModule {}
